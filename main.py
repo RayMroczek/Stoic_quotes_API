@@ -9,12 +9,12 @@ import requests
 root = Tk()
 
 #list of image file names I want to rotate through, from dall-e prompts, variations, and edits (within platform):
-image_names = ['dall_e_cloud0.png', 'dall_e_cloud1.png', 'dall_e_cloud2.png', 'dall_e_cloud3.png', 'dall_e_cloud4.png', 'dall_e_cloud5.png', 'dall_e_cloud6.png', 'dall_e_cloud7.png', 'dall_e_cloud8.png', 'dall_e_cloud9.png', 'dall_e_cloud10.png', 'dall_e_cloud11.png']
+#can streamline this with range later
+image_names = ['dall_e_cloud0.png', 'dall_e_cloud1.png', 'dall_e_cloud2.png', 'dall_e_cloud3.png', 'dall_e_cloud4.png', 'dall_e_cloud5.png', 'dall_e_cloud6.png', 'dall_e_cloud7.png', 'dall_e_cloud8.png', 'dall_e_cloud9.png', 'dall_e_cloud10.png', 'dall_e_cloud11.png', 'dall_e_cloud12.png', 'dall_e_cloud13.png', 'dall_e_cloud14.png', 'dall_e_cloud15.png', 'dall_e_cloud16.png', 'dall_e_cloud17.png', 'dall_e_cloud18.png']
 
 #used chatGPT to help here, start
 #list of objects
 images = [PhotoImage(file=image_name) for image_name in image_names]
-print(images)
 
 # Define a function to change the image on the button
 def change_image():
