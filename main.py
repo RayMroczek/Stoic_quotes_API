@@ -3,9 +3,29 @@
 #quotes from https://github.com/tlcheah2/stoic-quote-lambda-public-api
 
 from tkinter import *
+
 import requests
 
+root = Tk()
 
+#list of image file names I want to rotate through, from dall-e prompts, variations, and edits (within platform):
+image_names = ['dall_e_cloud0.png', 'dall_e_cloud1.png', 'dall_e_cloud2.png', 'dall_e_cloud3.png', 'dall_e_cloud4.png', 'dall_e_cloud5.png', 'dall_e_cloud6.png', 'dall_e_cloud7.png', 'dall_e_cloud8.png', 'dall_e_cloud9.png', 'dall_e_cloud10.png', 'dall_e_cloud11.png']
+
+#used chatGPT to help here, start
+#list of objects
+images = [PhotoImage(file=image_name) for image_name in image_names]
+print(images)
+
+# Define a function to change the image on the button
+def change_image():
+    global current_image
+    current_image += 1
+    if current_image >= len(images):
+        current_image = 0
+    button.config(image=images[current_image])
+#used chatGPT to help here, end
+  
+#create the get_quote function, to get the random stoic quote:
 def get_quote():
   pass
   quote_response = requests.get(
@@ -16,6 +36,11 @@ def get_quote():
   quote = data["quote"]
   canvas.itemconfig(quote_text, text=quote)
   canvas.itemconfig(who_text, text=who)
+
+#create a function that runs both quote and image function.
+def quote_and_image():
+  get_quote()
+  change_image()
 
 
 window = Tk()
@@ -39,8 +64,14 @@ who_text = canvas.create_text(650,
                               fill="brown")
 canvas.grid(row=0, column=0)
 
-who_img = PhotoImage(file="cloud_dalle.png")
-who_button = Button(image=who_img, highlightthickness=0, command=get_quote)
-who_button.grid(row=1, column=0)
 
+#used chatGPT to help here, start
+# Set the initial image index
+current_image = 0
+
+button = Button(image=images[current_image], highlightthickness=0, command=quote_and_image)
+button.grid(row=1, column=0)
+#used chatGPT to help here, end
+
+root.mainloop()
 window.mainloop()
