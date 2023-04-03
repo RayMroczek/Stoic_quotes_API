@@ -45,24 +45,24 @@ def quote_and_image():
 
 window = Tk()
 window.title('Some Stoicism for the day...')
-window.config(padx=50, pady=50)
+window.config(padx=25, pady=25)
 
-canvas = Canvas(width=1100, height=450)
-background_img = PhotoImage(file="quotebox.png")
-canvas.create_image(650, 250, image=background_img)
-quote_text = canvas.create_text(650,
-                                175,
+canvas = Canvas(width=1100, height=210)
+background_img = PhotoImage(file="quotebox_3.png")
+canvas.create_image(550, 110, image=background_img)
+quote_text = canvas.create_text(500,
+                                100,
                                 text="click the cloud",
-                                width=450,
-                                font=("Arial", 16, "bold"),
-                                fill="black")
-who_text = canvas.create_text(650,
-                              350,
+                                width=800,
+                                font=("Arial", 12, "bold"),
+                                fill="white")
+who_text = canvas.create_text(550,
+                              160,
                               text="",
                               width=250,
-                              font=("Arial", 16, "bold"),
-                              fill="brown")
-canvas.grid(row=0, column=0)
+                              font=("Arial", 10, "bold"),
+                              fill="yellow")
+canvas.grid(row=1, column=0)
 
 
 #used chatGPT to help here, start
@@ -70,7 +70,7 @@ canvas.grid(row=0, column=0)
 current_image = 0
 
 button = Button(image=images[current_image], highlightthickness=0, command=quote_and_image)
-button.grid(row=1, column=0)
+button.grid(row=2, column=0)
 #used chatGPT to help here, end
 
 root.mainloop()
